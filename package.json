@@ -12,9 +12,12 @@
     "gen:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_REF\" --schema public > lib/supabase/types.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.112.3",
     "next": "16.3.2",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -23,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
+    "supabase": "^2.115.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

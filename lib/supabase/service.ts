@@ -1,0 +1,16 @@
+import "server-only";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+
+/**
+ * Service-role client. Bypasses RLS entirely — /ops only, and only ever
+ * imported from server-side code (the `server-only` import above throws a
+ * build error if this file is pulled into a client bundle). Never expose
+ * SUPABASE_SERVICE_ROLE_KEY to the browser. See docs/architecture.md.
+ */
+export function createServiceClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } },
+  );
+}
