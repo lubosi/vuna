@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm gen:types:*)",
+      "Bash(pnpm install:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(supabase db diff:*)",
+      "Bash(supabase db push:*)",
+      "Bash(supabase gen types:*)",
+      "Bash(supabase migration:*)",
+      "Bash(supabase status:*)",
+      "Read(**)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(supabase db reset *)"
+    ],
+    "deny": [
+      "Bash(git push * --force*)",
+      "Bash(git push * -f*)",
+      "Bash(rm -rf *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Edit(*.ts)|Edit(*.tsx)|Write(*.ts)|Write(*.tsx)",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/verify.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
