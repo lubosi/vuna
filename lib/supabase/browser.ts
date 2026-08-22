@@ -1,4 +1,5 @@
 import { createBrowserClient } from "@supabase/ssr";
+import type { Database } from "./types";
 
 /**
  * Anon-key client for the rare case a client component needs to talk to
@@ -6,7 +7,7 @@ import { createBrowserClient } from "@supabase/ssr";
  * through a server component instead — see docs/architecture.md.
  */
 export function createClient() {
-  return createBrowserClient(
+  return createBrowserClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );

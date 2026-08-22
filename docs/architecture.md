@@ -39,6 +39,7 @@ Server components are the default. A file becomes a client component only when i
 | `NEXT_PUBLIC_POSTHOG_KEY` / `NEXT_PUBLIC_POSTHOG_HOST` | yes | analytics |
 | `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` | split | error tracking, server + client |
 | `SUPABASE_PROJECT_REF` | no | used by the Supabase CLI, not the app |
+| `SUPABASE_DB_URL` | no | direct Postgres connection string, used by the Supabase CLI for `db push`/`gen types` |
 | `SUPABASE_ACCESS_TOKEN` | no | used by the `.mcp.json` Supabase server, not the app |
 | `GITHUB_PERSONAL_ACCESS_TOKEN` | no | used by the `.mcp.json` GitHub server, not the app |
 
