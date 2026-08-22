@@ -4,6 +4,11 @@ node_modules/
 # next.js
 .next/
 out/
+next-env.d.ts
+*.tsbuildinfo
+
+# vercel
+.vercel
 
 # env
 .env.local
@@ -19,3 +24,4 @@ supabase/.temp/
 # misc
 .DS_Store
 *.log
+coverage/
